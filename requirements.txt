@@ -1,0 +1,9 @@
+# OCR：画面文字识别（CPU，自带 PP-OCRv4 模型，约 15 MB）
+# 连带安装 onnxruntime(52MB) / opencv-python(112MB) / numpy(31MB)，总约 210 MB
+rapidocr_onnxruntime>=1.4.4
+
+# 同音异字检测（道歉/倒欠 这类 ASR 错字），纯 Python，约 1 MB
+pypinyin>=0.53
+
+# 图像差异与数组运算（OCR 已依赖，显式声明）
+numpy>=1.26

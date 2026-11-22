@@ -1,0 +1,6 @@
+name: astrbot_plugin_video_understanding
+display_name: 视频理解
+desc: 视频理解：@机器人 + 链接，自动抽帧、OCR、语音识别并成文。
+version: "0.1.0"
+author: 未知の未来
+repo: https://github.com/Unknown-Future1/astrbot-plugin-video-understanding

@@ -1,0 +1,112 @@
+{
+  "enable": {
+    "type": "bool",
+    "description": "启用视频理解",
+    "hint": "关闭后 @机器人 + 链接 也不会触发",
+    "default": true
+  },
+  "llama_dir": {
+    "type": "string",
+    "description": "llama.cpp 可执行目录",
+    "hint": "包含 llama-server.exe 的目录",
+    "default": "H:\\Deepseek-Harness\\Workspace\\model\\llama\\bin-vulkan"
+  },
+  "model_path": {
+    "type": "string",
+    "description": "视觉模型（GGUF）",
+    "hint": "Qwen3.5-4B-Q4_K_M.gguf 的绝对路径",
+    "default": "H:\\Deepseek-Harness\\Workspace\\model\\qwen3.5-4b\\Qwen3.5-4B-Q4_K_M.gguf"
+  },
+  "mmproj_path": {
+    "type": "string",
+    "description": "视觉投影文件（mmproj）",
+    "default": "H:\\Deepseek-Harness\\Workspace\\model\\qwen3.5-4b\\mmproj-F16.gguf"
+  },
+  "asr_model_dir": {
+    "type": "string",
+    "description": "SenseVoice 模型目录",
+    "hint": "包含 model.int8.onnx 与 tokens.txt",
+    "default": "H:\\Deepseek-Harness\\Workspace\\asr\\models\\sensevoice"
+  },
+  "port": {
+    "type": "int",
+    "description": "视觉服务端口",
+    "default": 8090
+  },
+  "ocr_threads": {
+    "type": "int",
+    "description": "OCR 线程数",
+    "hint": "0 表示自动（一半核心，封顶 10；并行时压到 4）",
+    "default": 0
+  },
+  "vlm_threads": {
+    "type": "int",
+    "description": "视觉推理线程数",
+    "hint": "0 表示自动（约三分之一核心）",
+    "default": 0
+  },
+  "asr_threads": {
+    "type": "int",
+    "description": "语音识别线程数",
+    "hint": "0 表示自动",
+    "default": 0
+  },
+  "frame_cap": {
+    "type": "int",
+    "description": "视觉帧上限",
+    "hint": "0 表示按时长自适应（6~15 帧）",
+    "default": 0
+  },
+  "keep_server": {
+    "type": "bool",
+    "description": "视觉服务常驻",
+    "hint": "常驻省掉每次 7 秒启动，但常占约 4 GB 显存",
+    "default": true
+  },
+  "parse_wait": {
+    "type": "int",
+    "description": "等待解析器下载的最长秒数",
+    "default": 60
+  },
+  "reply_max_chars": {
+    "type": "int",
+    "description": "回复最大字数",
+    "default": 1200
+  },
+  "parser_cache_dir": {
+    "type": "string",
+    "description": "万能解析器缓存目录",
+    "hint": "留空自动使用 data/plugin_data/astrbot_plugin_parser/cache",
+    "default": ""
+  },
+  "use_chat_model": {
+    "type": "bool",
+    "description": "用会话大模型成文",
+    "hint": "关闭则直接发本地摘要（较生硬）",
+    "default": true
+  },
+  "term_correction": {
+    "type": "bool",
+    "description": "启用同音术语纠错",
+    "hint": "用画面文字纠正语音错字；关闭则交给大模型自行判断",
+    "default": false
+  },
+  "idle_unload_seconds": {
+    "type": "int",
+    "description": "空闲卸载秒数",
+    "hint": "常驻模式下闲置超过该秒数就关闭视觉服务释放显存；0 表示不卸载",
+    "default": 600
+  },
+  "vlm_image_width": {
+    "type": "int",
+    "description": "视觉帧宽度",
+    "hint": "640 更快；896 更清晰但每帧多 1~1.5 秒。文字交给 OCR，一般 640 够用",
+    "default": 640
+  },
+  "job_timeout_seconds": {
+    "type": "int",
+    "description": "单个任务超时秒数",
+    "hint": "超时后回复「解析超时」，默认 900",
+    "default": 900
+  }
+}
